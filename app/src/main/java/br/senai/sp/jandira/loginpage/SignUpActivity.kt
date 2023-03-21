@@ -11,6 +11,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,7 +53,10 @@ fun SignUp() {
     var passwordState = rememberSaveable() {
         mutableStateOf("")
     }
-    var checkBoxState false
+    var checkBoxState = rememberSaveable() {
+        mutableStateOf(false)
+    }
+
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.fillMaxWidth()) {
             Row(
@@ -191,8 +195,14 @@ fun SignUp() {
             }
             Spacer(modifier = Modifier.height(31.dp))
 
-            Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(checked = checkBoxState, onCheckedChange = {})
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(
+                    checked = checkBoxState.value,
+                    onCheckedChange = { checkBoxState.value }
+                )
                 Text(text = "Over 18?")
 
             }
@@ -212,7 +222,11 @@ fun SignUp() {
                         .height(48.dp),
                     shape = RoundedCornerShape(16.dp)
                 ) {
-                    Text(text = "CREATE ACCOUNT ", color = Color.White, fontWeight = FontWeight(700))
+                    Text(
+                        text = "CREATE ACCOUNT ",
+                        color = Color.White,
+                        fontWeight = FontWeight(700)
+                    )
 
                 }
                 Spacer(modifier = Modifier.height(31.dp))
@@ -235,7 +249,9 @@ fun SignUp() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(), horizontalArrangement = Arrangement.Start, verticalAlignment = Alignment.Bottom
+                    .fillMaxHeight(),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.Bottom
             ) {
                 Box(
                     modifier = Modifier
@@ -250,3 +266,5 @@ fun SignUp() {
         }
     }
 }
+
+

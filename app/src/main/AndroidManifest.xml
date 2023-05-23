@@ -11,37 +11,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginPage"
         tools:targetApi="31">
-        <activity
-            android:name=".InitPage"
-            android:exported="false"
-            android:label="@string/title_activity_init_page"
-            android:theme="@style/Theme.LoginPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".YourTravel"
-            android:exported="false" />
-        <activity
-            android:name=".YoursTravel"
-            android:exported="false" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false"
             android:label="@string/title_activity_sign_up"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.LoginPage" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.LoginPage" />
+
         <activity
             android:name=".MainActivity"
-            android:exported="true"
+            android:exported="false"
+            android:screenOrientation="portrait"
             android:label="@string/app_name"
+            android:theme="@style/Theme.LoginPage">
+        </activity>
+        <activity
+            android:name=".TravelPageActivity"
+            android:exported="true"
+            android:label="@string/title_activity_init_page"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
